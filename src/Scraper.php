@@ -34,6 +34,18 @@ class Scraper
      */
     public function fetchAndProcess($url)
     {
+        return $this->fetch($url);
+    }
+
+    /**
+     * Fetches a URL.
+     *
+     * @param  string $url The URL to process
+     * @return Crawler
+     * @throws ConnectException
+     */
+    public function fetch($url)
+    {
         return $this->request($url, 'GET');
     }
 

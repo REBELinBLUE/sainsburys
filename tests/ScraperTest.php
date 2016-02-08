@@ -7,20 +7,39 @@ use REBELinBLUE\Sainsburys\Scraper;
  */
 class ScraperTest extends \PHPUnit_Framework_TestCase
 {
-	private $scraper;
-
-	public function setUp()
-	{
-		$this->scraper = new Scraper;
-	}
+    /**
+     * Instance of the scraper class
+     * @var Scraper
+     */
+    private $scraper;
 
     /**
-     * Text the scraper class
+     * Setup method.
+     */
+    public function setUp()
+    {
+        $this->scraper = new Scraper;
+    }
+
+    /**
+     * Test that an invalid URL gives the expected exception.
      *
      * @return void
+     * @expectedException GuzzleHttp\Exception\ConnectException
      */
     public function testInvalidUrl()
     {
-        $this->scraper->fetchAndProcess('http://invalid.local'); //http://hiring-tests.s3-website-eu-west-1.amazonaws.com/2015_Developer_Scrape/5_products.html');
+        $this->scraper->fetch('http://invalid.local');
+    }
+
+    /**
+     * Test that something which is not a URL gives the excepted exception.
+     *
+     * @return void
+     * @expectedException GuzzleHttp\Exception\ConnectException
+     */
+    public function testNotUrl()
+    {
+        $this->scraper->fetch('not-a-url');
     }
 }
