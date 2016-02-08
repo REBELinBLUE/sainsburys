@@ -52,4 +52,16 @@ class ScraperTest extends \PHPUnit_Framework_TestCase
     {
         $this->scraper->fetch('http://www.google.com');
     }
+
+    /**
+     * Tests a valid response.
+     *
+     * @return void
+     */
+    public function testSainsburyUrl()
+    {
+        $response = $this->scraper->fetchAndProcess('http://hiring-tests.s3-website-eu-west-1.amazonaws.com/2015_Developer_Scrape/5_products.html');
+
+        echo json_encode($response);
+    }
 }
