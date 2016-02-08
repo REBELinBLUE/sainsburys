@@ -1,0 +1,32 @@
+build_settings:
+    clone_depth: 1
+    verbose: false
+    ignore:
+        - "vendor"
+
+setup:
+    composer:
+        action: "install"
+        prefer_dist: true
+
+test:
+    lint:
+        directory: "src/"
+    php_unit:
+        config:
+            - "phpunit.xml.dist"
+        directory:
+            - "tests/"
+    php_mess_detector:
+        allowed_warnings: 0
+        path: "src/"
+        rules:
+            - "design"
+            - "naming"
+            - "unusedcode"
+    php_code_sniffer:
+        path: "src/"
+        standard: "PSR2"
+        allowed_warnings: 0
+        allowed_errors: 0
+    technical_debt:
