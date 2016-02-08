@@ -42,4 +42,14 @@ class ScraperTest extends \PHPUnit_Framework_TestCase
     {
         $this->scraper->fetch('not-a-url');
     }
+
+    /**
+     * Test that a valid URL does not throw an error.
+     *
+     * @return void
+     */
+    public function testIsValidUrl()
+    {
+        $this->scraper->fetch('http://www.google.com');
+    }
 }
