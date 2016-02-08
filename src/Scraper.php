@@ -84,4 +84,16 @@ class Scraper
             throw $error;
         }
     }
+
+    /**
+     * Get's the content length of the latest request.
+     *
+     * @return string
+     */
+    public function getResponseSize()
+    {
+        $response = $this->client->getInternalResponse();
+
+        return $response->getHeader('Content-Length');
+    }
 }
