@@ -5,6 +5,7 @@ namespace REBELinBLUE\Sainsburys;
 use Goutte\Client;
 use GuzzleHttp\Exception\ConnectException;
 use Symfony\Component\DomCrawler\Crawler;
+use REBELinBLUE\Sainsburys\Crawler\ProductParser;
 
 /**
  * Scrapper class
@@ -29,12 +30,16 @@ class Scraper
      * Fetches a URL and processes it.
      *
      * @param  string $url The URL to process
-     * @return Crawler
+     * @return array An array of Product models
      * @throws ConnectException
      */
     public function fetchAndProcess($url)
     {
-        return $this->fetch($url);
+        return $this->getProductContainers($this->fetch($url))->each(function (Crawler $node) {
+            $parser = new ProductParser($node);
+
+            return $parser->getProduct();
+        });
     }
 
     /**
@@ -50,7 +55,19 @@ class Scraper
     }
 
     /**
-     * Requests a URL
+     * Gets the products from the response.
+     *
+     * @param  Crawler $response [description]
+     * @return [type]            [description]
+     */
+    public function getProductContainers(Crawler $response)
+    {
+        return $response->filter('.productInner');
+    }
+
+    /**
+     * Requests a URL.
+     *
      * @param  string $url    The URL to request
      * @param  string $method The HTTP method
      * @return Crawler
