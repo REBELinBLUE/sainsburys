@@ -30,9 +30,9 @@ class ScraperCommand extends Command
                  null                             // Default
              )
              ->addArgument(
-                'url',                            // Option
-                InputArgument::REQUIRED,          // Mode
-                'URL to scrape'                   // Description
+                 'url',                            // Option
+                 InputArgument::REQUIRED,          // Mode
+                 'URL to scrape'                   // Description
              );
     }
 
