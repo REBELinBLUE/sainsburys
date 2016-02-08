@@ -92,8 +92,7 @@ class ProductParser
      */
     private function getDetails()
     {
-        if (is_null($this->details))
-        {
+        if (is_null($this->details)) {
             $url = $this->crawler
                         ->selectLink($this->getTitle())
                         ->link()

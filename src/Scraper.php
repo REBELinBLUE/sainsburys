@@ -75,12 +75,9 @@ class Scraper
      */
     private function request($url, $method = 'GET')
     {
-        try
-        {
+        try {
             return $this->client->request(strtoupper($method), $url);
-        }
-        catch (ConnectException $error)
-        {
+        } catch (ConnectException $error) {
             throw $error;
         }
     }
