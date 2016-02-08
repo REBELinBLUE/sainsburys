@@ -1,7 +1,10 @@
+# Sainsbury's Web Scrapper
 
 
+## Testing
 
-# Notes
+### Coding Standards
 
-symfony/console 3.0 requires PHP 5.5.9+ and the test says to assume PHP 5.4+
-fabpot/goutte 3.0 requires PHP 5.5.9+
+The code is written to follow [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) standards, this can be tested using PHP_CodeSniffer
+
+    $ ./vendor/bin/phpcs --standard=PSR2 src/
