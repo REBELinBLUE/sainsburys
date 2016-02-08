@@ -9,11 +9,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Basic scrapper command
  */
-class Scrapper extends Command
+class ScrapperCommand extends Command
 {
     protected function configure()
     {
-        $this->setName('scrap')
+        $this->setName('scrape')
              ->setDescription('Scraps a URL for a list of products');
     }
 
