@@ -1,4 +1,4 @@
-# Sainsbury's Web Scrapper
+# Sainsbury's Web Scraper
 
 [![Build Status](http://ci.rebelinblue.com/build-status/image/4?branch=master&style=flat&label=PHPCI)](http://ci.rebelinblue.com/build-status/view/4?branch=master)
 

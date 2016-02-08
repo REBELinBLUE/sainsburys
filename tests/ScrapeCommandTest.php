@@ -1,6 +1,6 @@
 <?php
 
-use REBELinBLUE\Sainsburys\Commands\ScrapperCommand;
+use REBELinBLUE\Sainsburys\Commands\ScraperCommand;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 
@@ -9,10 +9,14 @@ use Symfony\Component\Console\Tester\CommandTester;
  */
 class ScrapeCommandTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * Text the basic application
+     * @return void
+     */
     public function testExecute()
     {
         $application = new Application;
-        $application->add(new ScrapperCommand);
+        $application->add(new ScraperCommand);
 
         $command = $application->find('scrape');
 
