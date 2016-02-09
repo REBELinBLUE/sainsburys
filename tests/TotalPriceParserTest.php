@@ -20,6 +20,11 @@ class TotalPriceParserTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0, $parser->getTotalPrice());
     }
 
+    /**
+     * Test that the parser works with only one product.
+     *
+     * @return void
+     */
     public function testSingleProducts()
     {
         $peaches = new Product;
@@ -31,6 +36,11 @@ class TotalPriceParserTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1.00, $parser->getTotalPrice());
     }
 
+    /**
+     * Test that the parser works with multiple products.
+     *
+     * @return void
+     */
     public function testSumProducts()
     {
         $peaches = new Product;
@@ -46,6 +56,11 @@ class TotalPriceParserTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1.75, $parser->getTotalPrice());
     }
 
+    /**
+     * Test that the parser handles invalid objects.
+     *
+     * @return void
+     */
     public function testInvalidProducts()
     {
         $invalid = new \StdClass;
@@ -54,5 +69,37 @@ class TotalPriceParserTest extends \PHPUnit_Framework_TestCase
         $parser = new ProductTotalParser([$invalid]);
 
         $this->assertEquals(0, $parser->getTotalPrice());
+    }
+
+    /**
+     * Test that the parser handles invalid prices
+     *
+     * @return void
+     */
+    public function testInvalidPrice()
+    {
+        $peaches = new Product;
+        $peaches->unit_price = 'unknown';
+        $peaches->title = 'Peaches';
+
+        $parser = new ProductTotalParser([$peaches]);
+
+        $this->assertEquals(0.00, $parser->getTotalPrice());
+    }
+
+    /**
+     * Test that the price is returned with 2 decimal places.
+     *
+     * @return void
+     */
+    public function testPriceHas2DecminalPlaces()
+    {
+        $peaches = new Product;
+        $peaches->unit_price = 1.5;
+        $peaches->title = 'Peaches';
+
+        $parser = new ProductTotalParser([$peaches]);
+
+        $this->assertEquals(1.50, $parser->getTotalPrice());
     }
 }

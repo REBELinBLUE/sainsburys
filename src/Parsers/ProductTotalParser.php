@@ -62,6 +62,6 @@ class ProductTotalParser
             }
         }
 
-        return $price;
+        return number_format($price, 2);
     }
 }
