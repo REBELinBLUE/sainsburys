@@ -2,6 +2,8 @@
 
 namespace REBELinBLUE\Sainsburys\Parsers;
 
+use REBELinBLUE\Sainsburys\Models\Product;
+
 /**
  * Class which takes a coll
  */
@@ -51,6 +53,15 @@ class ProductTotalParser
      */
     private function calculateCombinedPrice(array $products)
     {
-        return 0;
+        $price = 0;
+
+        foreach ($products as $product)
+        {
+            if ($product instanceof Product && property_exists($product, 'unit_price') && is_numeric($product->unit_price)) {
+                $price += $product->unit_price;
+            }
+        }
+
+        return $price;
     }
 }
