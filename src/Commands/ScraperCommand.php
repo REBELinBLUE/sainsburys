@@ -7,6 +7,9 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use REBELinBLUE\Sainsburys\Scraper;
+use REBELinBLUE\Sainsburys\Formatters\JsonFormatter;
+use REBELinBLUE\Sainsburys\Parsers\ProductTotalParser;
 
 /**
  * Basic scrpper command
@@ -49,5 +52,17 @@ class ScraperCommand extends Command
         $url = $input->getArgument('url');
 
         $scraper = new Scraper;
+        $products = $scraper->fetchAndProcess($url);
+
+        $calculator = new ProductTotalParser($products);
+
+        $formatter = new JsonFormatter([
+            'results' => $products,
+            'total'   => $calculator->getTotalPrice()
+        ]);
+
+        $formatter->setPretty($pretty);
+
+        echo $formatter->getFormatted();
     }
 }
