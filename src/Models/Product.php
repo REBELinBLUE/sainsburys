@@ -4,6 +4,7 @@ namespace REBELinBLUE\Sainsburys\Models;
 
 /**
  * The product model.
+ * @todo Expand to add an isValid method which checks the required fields are set.
  */
 class Product extends \ArrayObject
 {
