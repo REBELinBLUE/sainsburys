@@ -7,7 +7,7 @@ use REBELinBLUE\Sainsburys\Models\Product;
 /**
  * Test the price parser class.
  */
-class TotalPriceParserTest extends \PHPUnit_Framework_TestCase
+class ProductTotalParserTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Tests that no products returns a price of 0.
