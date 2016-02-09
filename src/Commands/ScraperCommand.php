@@ -45,11 +45,16 @@ class ScraperCommand extends Command
      * @param  InputInterface  $input
      * @param  OutputInterface $output
      * @return void
+     * @todo Should we catch the exception if there is an invalid URL and present our own message?
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $pretty = $input->getOption('pretty');
         $url = $input->getArgument('url');
+
+        if ($output->isVerbose()) {
+            $output->writeln('<info>Processing URL ' . $url . '</info>');
+        }
 
         $scraper = new Scraper;
         $products = $scraper->fetchAndProcess($url);
@@ -63,6 +68,17 @@ class ScraperCommand extends Command
 
         $formatter->setPretty($pretty);
 
-        echo $formatter->getFormatted();
+        if ($output->isVerbose()) {
+
+            if ($pretty) {
+                $output->writeln('<info>Enabled pretty printing</info>');
+            }
+
+            if (!count($products)) {
+                $output->writeln('<error>No results found!</error>');
+            }
+        }
+
+        $output->writeln($formatter->getFormatted());
     }
 }
