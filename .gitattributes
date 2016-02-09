@@ -24,6 +24,9 @@
 # Documentation
 *.md text
 
+# Test data
+*.json text
+
 #
 ## Remove development files from git archive
 #
