@@ -37,8 +37,7 @@ class ProductTotalParser
      */
     public function getTotalPrice()
     {
-        if (is_null($this->total))
-        {
+        if (is_null($this->total)) {
             $this->total = $this->calculateCombinedPrice($this->products);
         }
 
@@ -55,8 +54,7 @@ class ProductTotalParser
     {
         $price = 0;
 
-        foreach ($products as $product)
-        {
+        foreach ($products as $product) {
             if ($product instanceof Product && property_exists($product, 'unit_price') && is_numeric($product->unit_price)) {
                 $price += $product->unit_price;
             }

@@ -33,6 +33,7 @@ class Scraper
      * @return array An array of Product models
      * @throws ConnectException
      * @todo Could replace this with a Collection object instead of an array
+     * @todo Move this to a ProductsParser
      */
     public function fetchAndProcess($url)
     {
