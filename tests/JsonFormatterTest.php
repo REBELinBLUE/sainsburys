@@ -30,22 +30,11 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
      **/
     public function testSingleEntry()
     {
-        $simple_json    = $this->getTestData('single');
-        $formatted_json = $this->getTestData('single-formatted');
-
         $formatter = new JsonFormatter([
-            'key' => 'value'
+            'key' => 'value',
         ]);
 
-        $this->assertEquals($simple_json, $formatter->getFormatted());
-
-        // Make sure that turning on pretty doesn't change the output
-        $formatter->setPretty(true);
-        $this->assertEquals($formatted_json, $formatter->getFormatted());
-
-        // Then that turning off pretty means the unformatted data is returned
-        $formatter->setPretty(false);
-        $this->assertEquals($simple_json, $formatter->getFormatted());
+        $this->doTests($formatter, 'single');
     }
 
     /**
@@ -53,17 +42,27 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
      */
     public function testMultipleEntries()
     {
-        $simple_json    = $this->getTestData('multiple');
-        $formatted_json = $this->getTestData('multiple-formatted');
-
         $formatter = new JsonFormatter([
             'key' => 'value',
             'foo' => 'bar',
-            'baz' => 500
+            'baz' => 500,
         ]);
 
-        $this->assertEquals($simple_json, $formatter->getFormatted());
+        $this->doTests($formatter, 'multiple');
+    }
+    /**
+     * Simple method to run the 3 tests.
+     *
+     * @param JsonFormatter $formatter
+     * @param string $fixture The name of the fixture file to use
+     * @return void
+     */
+    private function doTests(JsonFormatter $formatter, $fixture)
+    {
+        $simple_json    = $this->getTestData($fixture);
+        $formatted_json = $this->getTestData($fixture . '-formatted');
 
+        $this->assertEquals($simple_json, $formatter->getFormatted());
 
         // Make sure that turning on pretty doesn't change the output
         $formatter->setPretty(true);
