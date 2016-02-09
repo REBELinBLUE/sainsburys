@@ -50,6 +50,20 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 
         $this->doTests($formatter, 'multiple');
     }
+
+    /**
+     * Test array formatting.
+     **/
+    public function testArrayEntries()
+    {
+        $formatter = new JsonFormatter([
+            ['key' => 'value'],
+            ['foo' => 'bar'],
+        ]);
+
+        $this->doTests($formatter, 'array');
+    }
+
     /**
      * Simple method to run the 3 tests.
      *
