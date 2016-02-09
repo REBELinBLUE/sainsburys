@@ -1,6 +1,6 @@
 <?php
 
-namespace REBELinBLUE\Sainsburys\Crawler;
+namespace REBELinBLUE\Sainsburys\Parsers;
 
 use REBELinBLUE\Sainsburys\Models\Product;
 use Symfony\Component\DomCrawler\Crawler;

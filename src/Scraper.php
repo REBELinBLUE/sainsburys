@@ -5,7 +5,7 @@ namespace REBELinBLUE\Sainsburys;
 use Goutte\Client;
 use GuzzleHttp\Exception\ConnectException;
 use Symfony\Component\DomCrawler\Crawler;
-use REBELinBLUE\Sainsburys\Crawler\ProductParser;
+use REBELinBLUE\Sainsburys\Parsers\ProductParser;
 
 /**
  * Scrapper class
@@ -32,6 +32,7 @@ class Scraper
      * @param  string $url The URL to process
      * @return array An array of Product models
      * @throws ConnectException
+     * @todo Could replace this with a Collection object instead of an array
      */
     public function fetchAndProcess($url)
     {
