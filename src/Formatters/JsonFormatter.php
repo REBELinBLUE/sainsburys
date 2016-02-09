@@ -2,6 +2,9 @@
 
 namespace REBELinBLUE\Sainsburys\Formatters;
 
+/**
+ * A class for formatting an array into a JSON format.
+ **/
 class JsonFormatter
 {
     /**

@@ -7,5 +7,11 @@ use REBELinBLUE\Sainsburys\Formatters\JsonFormatter;
  */
 class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 {
-
+    /**
+     * Skip the tests
+     **/
+    public function testSkip()
+    {
+        $this->markTestSkipped('Not yet implemented');
+    }
 }
