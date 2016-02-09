@@ -30,8 +30,8 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
      **/
     public function testSingleEntry()
     {
-        $simple_json = file_get_contents(__DIR__ . '/fixtures/simple.json');
-        $formatted_json = file_get_contents(__DIR__ . '/fixtures/formatted_simple.json');
+        $simple_json    = $this->getTestData('single');
+        $formatted_json = $this->getTestData('formatted_single');
 
         $formatter = new JsonFormatter([
             'key' => 'value'
@@ -46,5 +46,15 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
         // Then that turning off pretty means the unformatted data is returned
         $formatter->setPretty(false);
         $this->assertEquals($simple_json, $formatter->getFormatted());
+    }
+    /**
+     * Simple method to load the JSON test data
+     *
+     * @param string $type
+     * @return string
+     */
+    private function getTestData($type)
+    {
+        return file_get_contents(__DIR__ . '/fixtures/' . $type . '.json');
     }
 }
