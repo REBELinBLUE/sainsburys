@@ -2,15 +2,23 @@
 
 [![Build Status](http://ci.rebelinblue.com/build-status/image/4?branch=master&style=flat&label=PHPCI)](http://ci.rebelinblue.com/build-status/view/4?branch=master)
 
-### Assumptions
+## Assumptions
 
 This guide assumes that [composer](https://getcomposer.org/) is installed in `$PATH`
 
-## Requirements
+## Dependencies
+
+The tool has the following system dependencies
 
  * [PHP](http://www.php.net) 5.5.9+ or newer with the cURL & JSON extensions
+ 
+It also relies 2 external PHP libaries
+
+ * [symfony/console](https://github.com/symfony/console) for providing the command line interface
+ * [fabpot/goutte](https://github.com/FriendsOfPHP/Goutte) for parsing pages
 
 ## Installation
+
 
 1. Clone the repository
 
@@ -30,20 +38,32 @@ This guide assumes that [composer](https://getcomposer.org/) is installed in `$P
     $ composer install -o --no-dev
     ```
 
-## Dependencies
-
-It has two external dependencies:
-
- * [symfony/console](https://github.com/symfony/console) for providing the command line interface
- * [fabpot/goutte](https://github.com/FriendsOfPHP/Goutte) for parsing pages
-
 ## Running
 
+The application can be run as follows
+
+    $ php console scrape $URL
+    
+Where `$URL` is the URL to scrape.
+
+The command also allows for the JSON output to be formatted, using the `--pretty` option, for example
+
+	$ php console scrape $URL --pretty
+	
+Additional debugging information can be output using `--verbose`, for example
+
+	$ php console scrape $URL --pretty --verbose
+	
+So, to get the output for the URL listed in the test, the following command would be run
+
+	$ php console scrape http://hiring-tests.s3-website-eu-west-1.amazonaws.com/2015_Developer_Scrape/5_products.html --pretty
 
 
-### Development
+## Testing
 
-During development there are several additional dependencies
+### Dependencies
+
+During development & testing there are several additional dependencies
 
  * [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) for unit testing
  * [squizlabs/php_codesniffer](https://github.com/squizlabs/php_codesniffer) for checking code formatting
@@ -56,15 +76,13 @@ These can be installed with
 
     $ composer install
 
-## Testing
-
 ### Unit Testing
 
 There are unit tests included which use PHPUnit, they can be run with the following
 
     $ ./vendor/bin/phpunit
 
-It is possible to customise the PHPUnit configuration by copying `phpunit.xml.dist` to `phpunit.xml` and modifying it as desired
+It is possible to customise the PHPUnit configuration by copying `phpunit.xml.dist` to `phpunit.xml` and modifying it as desired.
 
 ### Coding Standards
 
@@ -83,3 +101,5 @@ Duplication can be checked with
 PHPDoc blocks can be checked with
 
     $ ./vendor/bin/phpdoccheck --directory=src/
+
+These tests are run automatically on push using [PHPCI](http://phptesting.org)
