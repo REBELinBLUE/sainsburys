@@ -24,9 +24,18 @@ test:
             - "design"
             - "naming"
             - "unusedcode"
+            - "codesize"
+            - "cleancode"
     php_code_sniffer:
         path: "src/"
         standard: "PSR2"
         allowed_warnings: 0
         allowed_errors: 0
     technical_debt:
+    php_cpd:
+    php_loc:
+    php_docblock_checker:
+
+failure:
+    email:
+        committer: true
