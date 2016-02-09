@@ -31,7 +31,7 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
     public function testSingleEntry()
     {
         $simple_json    = $this->getTestData('single');
-        $formatted_json = $this->getTestData('formatted_single');
+        $formatted_json = $this->getTestData('single-formatted');
 
         $formatter = new JsonFormatter([
             'key' => 'value'
@@ -54,7 +54,7 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
     public function testMultipleEntries()
     {
         $simple_json    = $this->getTestData('multiple');
-        $formatted_json = $this->getTestData('formatted_multiple');
+        $formatted_json = $this->getTestData('multiple-formatted');
 
         $formatter = new JsonFormatter([
             'key' => 'value',
