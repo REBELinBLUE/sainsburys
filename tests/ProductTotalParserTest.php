@@ -1,7 +1,6 @@
 <?php
 
 use REBELinBLUE\Sainsburys\Parsers\ProductTotalParser;
-
 use REBELinBLUE\Sainsburys\Models\Product;
 
 /**
