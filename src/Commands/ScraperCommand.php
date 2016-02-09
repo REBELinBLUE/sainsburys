@@ -24,18 +24,18 @@ class ScraperCommand extends Command
     protected function configure()
     {
         $this->setName('scrape')
-             ->setDescription('Scraps a URL for a list of products')
+             ->setDescription('Scrapes a URL for a list of products')
              ->addOption(
-                 'pretty',                        // Option
-                 null,                            // Shortcut
-                 InputOption::VALUE_NONE,         // Mode
-                 'Pretty Prints the JSON output', // Description,
-                 null                             // Default
+                 'pretty',                       // Option
+                 null,                           // Shortcut
+                 InputOption::VALUE_NONE,        // Mode
+                 'Pretty print the JSON output', // Description,
+                 null                            // Default
              )
              ->addArgument(
-                 'url',                            // Option
-                 InputArgument::REQUIRED,          // Mode
-                 'URL to scrape'                   // Description
+                 'url',                           // Option
+                 InputArgument::REQUIRED,         // Mode
+                 'URL to scrape'                  // Description
              );
     }
 
