@@ -47,6 +47,33 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
         $formatter->setPretty(false);
         $this->assertEquals($simple_json, $formatter->getFormatted());
     }
+
+    /**
+     * Test multiple key/value pairs in the JSON object
+     */
+    public function testMultipleEntries()
+    {
+        $simple_json    = $this->getTestData('multiple');
+        $formatted_json = $this->getTestData('formatted_multiple');
+
+        $formatter = new JsonFormatter([
+            'key' => 'value',
+            'foo' => 'bar',
+            'baz' => 500
+        ]);
+
+        $this->assertEquals($simple_json, $formatter->getFormatted());
+
+
+        // Make sure that turning on pretty doesn't change the output
+        $formatter->setPretty(true);
+        $this->assertEquals($formatted_json, $formatter->getFormatted());
+
+        // Then that turning off pretty means the unformatted data is returned
+        $formatter->setPretty(false);
+        $this->assertEquals($simple_json, $formatter->getFormatted());
+    }
+
     /**
      * Simple method to load the JSON test data
      *
