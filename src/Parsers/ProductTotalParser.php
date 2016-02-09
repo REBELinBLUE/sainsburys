@@ -46,8 +46,8 @@ class ProductTotalParser
 
     /**
      * Calculates the combined price of the passed in products
-     * 
-     * @param  array  $products 
+     *
+     * @param  array $products
      * @return float
      */
     private function calculateCombinedPrice(array $products)
@@ -55,8 +55,10 @@ class ProductTotalParser
         $price = 0;
 
         foreach ($products as $product) {
-            if ($product instanceof Product && property_exists($product, 'unit_price') && is_numeric($product->unit_price)) {
-                $price += $product->unit_price;
+            if ($product instanceof Product) {
+                if (property_exists($product, 'unit_price') && is_numeric($product->unit_price)) {
+                    $price += $product->unit_price;
+                }
             }
         }
 

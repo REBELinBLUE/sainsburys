@@ -17,13 +17,13 @@ test:
             - "phpunit.xml.dist"
         directory:
             - "tests/"
-    # php_mess_detector:
-    #     allowed_warnings: 0
-    #     path: "src/"
-    #     rules:
-    #         - "design"
-    #         - "naming"
-    #         - "unusedcode"
+    php_mess_detector:
+        allowed_warnings: 0
+        path: "src/"
+        rules:
+            - "design"
+            - "naming"
+            - "unusedcode"
     php_code_sniffer:
         path: "src/"
         standard: "PSR2"
