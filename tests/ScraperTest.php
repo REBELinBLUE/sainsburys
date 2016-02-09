@@ -38,7 +38,7 @@ class ScraperTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      * @expectedException GuzzleHttp\Exception\ConnectException
-     * @todo FIXME
+     * @todo Fix this test
      */
     public function testNotUrl()
     {
