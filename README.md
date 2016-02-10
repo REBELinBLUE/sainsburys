@@ -73,6 +73,7 @@ During development & testing there are several additional dependencies
  * [block8/php-docblock-checker](https://github.com/block8/php-docblock-checker) to ensure no PHPDoc blocks is missing 
  * [phpcpd/phpcpd](https://github.com/sebastianbergmann/phpcpd) to ensure there is no code duplication
  * [phploc/phploc](https://github.com/sebastianbergmann/phploc) to generate "Lines of Code" data
+ * [codeclimate/php-test-reporter](https://github.com/codeclimate/php-test-reporter) to send the test coverage report to Codeclimate
 
 These can be installed with
 
