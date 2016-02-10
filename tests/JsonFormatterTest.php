@@ -73,18 +73,18 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
      */
     private function doTests(JsonFormatter $formatter, $fixture)
     {
-        $simple_json    = $this->getTestData($fixture);
-        $formatted_json = $this->getTestData($fixture . '-formatted');
+        $simple    = $this->getTestData($fixture);
+        $formatted = $this->getTestData($fixture . '-formatted');
 
-        $this->assertEquals($simple_json, $formatter->getFormatted());
+        $this->assertEquals($simple, $formatter->getFormatted());
 
         // Make sure that turning on pretty doesn't change the output
         $formatter->setPretty(true);
-        $this->assertEquals($formatted_json, $formatter->getFormatted());
+        $this->assertEquals($formatted, $formatter->getFormatted());
 
         // Then that turning off pretty means the unformatted data is returned
         $formatter->setPretty(false);
-        $this->assertEquals($simple_json, $formatter->getFormatted());
+        $this->assertEquals($simple, $formatter->getFormatted());
     }
 
     /**
