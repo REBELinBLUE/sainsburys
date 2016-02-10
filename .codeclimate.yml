@@ -17,3 +17,4 @@ exclude_paths:
     - composer.lock
     - composer.json
     - phpunit.xml.dist
+    - README.md
