@@ -91,15 +91,15 @@ It is possible to customise the PHPUnit configuration by copying `phpunit.xml.di
 
 The code is written to follow [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) standards, this can be tested using PHP_CodeSniffer
 
-    $ ./vendor/bin/phpcs --standard=PSR2 src/ tests/ console
+    $ ./vendor/bin/phpcs --standard=PSR2 src/ tests/
 
 Mess can be checked with
 
-    $ ./vendor/bin/phpmd src/,tests/,console text cleancode,codesize,design,naming,unusedcode
+    $ ./vendor/bin/phpmd src/,tests/ text cleancode,codesize,design,naming,unusedcode
 
 Duplication can be checked with
 
-    $ ./vendor/bin/phpcpd src/ tests/ console
+    $ ./vendor/bin/phpcpd src/ tests/
 
 PHPDoc blocks can be checked with
 

@@ -69,7 +69,6 @@ class ScraperCommand extends Command
         $formatter->setPretty($pretty);
 
         if ($output->isVerbose()) {
-
             if ($pretty) {
                 $output->writeln('<info>Enabled pretty printing</info>');
             }

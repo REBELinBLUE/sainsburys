@@ -1,14 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-set_time_limit(0);
-date_default_timezone_set('Europe/London');
-
-require_once __DIR__ . '/vendor/autoload.php';
-
-use Symfony\Component\Console\Application;
-use REBELinBLUE\Sainsburys\Commands\ScraperCommand;
-
-$application = new Application('Sainsbury\'s Web Scraper', '1.0.0');
-$application->add(new ScraperCommand);
-$application->run();
+// Require the console runner, it is in a seperate file rather than here so that it 
+// gets run through the various quality tools as without a .php extension it won't 
+require_once __DIR__ . '/src/Console.php';

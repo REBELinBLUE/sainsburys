@@ -13,3 +13,7 @@ ratings:
         - "**.php"
 exclude_paths:
     - vendor/
+    - tests/fixtures/
+    - composer.lock
+    - composer.json
+    - phpunit.xml.dist
