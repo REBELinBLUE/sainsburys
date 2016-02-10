@@ -68,8 +68,8 @@ class Scraper
     /**
      * Gets the products from the response.
      *
-     * @param  Crawler $response [description]
-     * @return [type]            [description]
+     * @param  Crawler $response
+     * @return Crawler
      */
     public function getProductContainers(Crawler $response)
     {
