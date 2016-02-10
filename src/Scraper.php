@@ -27,6 +27,15 @@ class Scraper
     }
 
     /**
+     * Gets the client object, used for unit testing
+     * @return Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
      * Fetches a URL and processes it.
      *
      * @param  string $url The URL to process
