@@ -76,7 +76,7 @@ class ScraperTest extends \PHPUnit_Framework_TestCase
     {
         $this->setMockHandler('simple');
 
-        $crawler = $this->scraper->fetch('http://www.google.com');
+        $this->scraper->fetch('http://www.google.com');
 
         $this->assertEquals(filesize(__DIR__ . '/fixtures/simple.html'), $this->scraper->getResponseSize());
     }
@@ -131,6 +131,7 @@ class ScraperTest extends \PHPUnit_Framework_TestCase
      *
      * @param Object $response
      * @return GuzzleClient
+     * @SuppressWarnings(PHPMD.StaticAccess) Not our code, and this is how Guzzle defines it
      */
     private function getGuzzle($response)
     {
