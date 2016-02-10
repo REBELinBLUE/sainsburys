@@ -91,18 +91,18 @@ It is possible to customise the PHPUnit configuration by copying `phpunit.xml.di
 
 The code is written to follow [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) standards, this can be tested using PHP_CodeSniffer
 
-    $ ./vendor/bin/phpcs --standard=PSR2 src/
+    $ ./vendor/bin/phpcs --standard=PSR2 src/ tests/ console
 
 Mess can be checked with
 
-    $ ./vendor/bin/phpmd src/ text cleancode,codesize,design,naming,unusedcode
+    $ ./vendor/bin/phpmd src/,tests/,console text cleancode,codesize,design,naming,unusedcode
 
 Duplication can be checked with
 
-    $ ./vendor/bin/phpcpd src/
+    $ ./vendor/bin/phpcpd src/ tests/ console
 
 PHPDoc blocks can be checked with
 
-    $ ./vendor/bin/phpdoccheck --directory=src/
+    $ ./vendor/bin/phpdoccheck --directory=. --exclude=vendor
 
 These tests are run automatically on push using [PHPCI](http://phptesting.org)
