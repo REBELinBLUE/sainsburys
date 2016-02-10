@@ -1,5 +1,7 @@
 <?php
 
+namespace REBELinBLUE\Sainsburys\Tests;
+
 use REBELinBLUE\Sainsburys\Formatters\JsonFormatter;
 
 /**

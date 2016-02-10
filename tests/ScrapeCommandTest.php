@@ -1,5 +1,7 @@
 <?php
 
+namespace REBELinBLUE\Sainsburys\Tests;
+
 use REBELinBLUE\Sainsburys\Commands\ScraperCommand;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;

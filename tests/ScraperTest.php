@@ -1,5 +1,7 @@
 <?php
 
+namespace REBELinBLUE\Sainsburys\Tests;
+
 use REBELinBLUE\Sainsburys\Scraper;
 
 /**
@@ -63,6 +65,7 @@ class ScraperTest extends \PHPUnit_Framework_TestCase
      */
     public function testSainsburyUrl()
     {
+        $this->markTestSkipped('Not Finished');
         $url = 'http://hiring-tests.s3-website-eu-west-1.amazonaws.com/2015_Developer_Scrape/5_products.html';
         $response = $this->scraper->fetchAndProcess($url);
 

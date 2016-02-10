@@ -25,6 +25,11 @@
             "REBELinBLUE\\Sainsburys\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "REBELinBLUE\\Sainsburys\\Tests\\": "tests/"
+        }
+    },
     "config": {
         "preferred-install": "dist"
     }
