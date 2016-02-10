@@ -15,12 +15,14 @@
         </testsuite>
     </testsuites>
     <filter>
-        <blacklist>
-              <directory>./vendor</directory>
-        </blacklist>
+        <whitelist>
+              <directory>./src/</directory>
+              <directory>./tests/</directory>
+        </whitelist>
     </filter>
     <logging>
-        <log type="coverage-clover" target="tests/clover.xml" charset="UTF-8" yui="true" highlight="true" lowUpperBound="35" highLowerBound="70" />
-        <log type="tap" target="tests/tap.log" logIncompleteSkipped="false" />
+        <log type="coverage-clover" target="tests/coverage/clover.xml" charset="UTF-8" yui="true" highlight="true" lowUpperBound="35" highLowerBound="70" />
+        <log type="coverage-html" target="tests/coverage/html/" charset="UTF-8" yui="true" highlight="true" lowUpperBound="35" highLowerBound="70" />
+        <log type="tap" target="tests/coverage/tap.log" logIncompleteSkipped="false" />
     </logging>
 </phpunit>
