@@ -17,10 +17,9 @@
     <filter>
         <whitelist>
             <directory>./src/</directory>
-            <directory>./tests/</directory>
             <exclude>
+                <directory>./tests/</directory>
                 <file>./src/Console.php</file>
-                <file>./tests/bootstrap.php</file>
             </exclude>
         </whitelist>
     </filter>
