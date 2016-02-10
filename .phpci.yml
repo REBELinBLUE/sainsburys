@@ -39,3 +39,7 @@ test:
 failure:
     email:
         committer: true
+
+complete:
+    shell:
+        - "php %BUILD_PATH%/vendor/bin/test-reporter --coverage-report=%BUILD_PATH%/tests/clover.xml"

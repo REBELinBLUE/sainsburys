@@ -17,7 +17,8 @@
         "phpmd/phpmd" : "~2.3",
         "block8/php-docblock-checker": "^1.0",
         "phploc/phploc": "^3.0",
-        "sebastian/phpcpd": "^2.0"
+        "sebastian/phpcpd": "^2.0",
+        "codeclimate/php-test-reporter": "dev-master"
     },
     "autoload": {
         "psr-4": {

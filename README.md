@@ -1,6 +1,8 @@
 # Sainsbury's Web Scraper
 
 [![Build Status](http://ci.rebelinblue.com/build-status/image/4?branch=master&style=flat&label=PHPCI)](http://ci.rebelinblue.com/build-status/view/4?branch=master)
+[![Code Climate](https://codeclimate.com/github/REBELinBLUE/sainsburys/badges/gpa.svg)](https://codeclimate.com/github/REBELinBLUE/sainsburys)
+[![Test Coverage](https://codeclimate.com/github/REBELinBLUE/sainsburys/badges/coverage.svg)](https://codeclimate.com/github/REBELinBLUE/sainsburys/coverage)
 
 ## Assumptions
 
