@@ -38,4 +38,4 @@ failure:
 
 complete:
     shell:
-        - "php %BUILD_PATH%/vendor/bin/test-reporter --coverage-report=%BUILD_PATH%/tests/clover.xml"
+        - "php %BUILD_PATH%/vendor/bin/test-reporter --coverage-report=%BUILD_PATH%/tests/coverage/clover.xml"

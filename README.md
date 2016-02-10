@@ -50,16 +50,15 @@ Where `$URL` is the URL to scrape.
 
 The command also allows for the JSON output to be formatted, using the `--pretty` option, for example
 
-	$ php console scrape $URL --pretty
-	
+    $ php console scrape $URL --pretty
+
 Additional debugging information can be output using `--verbose`, for example
 
-	$ php console scrape $URL --pretty --verbose
-	
+    $ php console scrape $URL --pretty --verbose
+
 So, to get the output for the URL listed in the test, the following command would be run
 
-	$ php console scrape http://hiring-tests.s3-website-eu-west-1.amazonaws.com/2015_Developer_Scrape/5_products.html --pretty
-
+    $ php console scrape http://hiring-tests.s3-website-eu-west-1.amazonaws.com/2015_Developer_Scrape/5_products.html --pretty
 
 ## Testing
 
@@ -85,7 +84,9 @@ There are unit tests included which use PHPUnit, they can be run with the follow
 
     $ ./vendor/bin/phpunit
 
-It is possible to customise the PHPUnit configuration by copying `phpunit.xml.dist` to `phpunit.xml` and modifying it as desired.
+It is possible to customise the PHPUnit configuration by copying `phpunit.xml.dist` to `phpunit.xml` and modifying it as desired. You may wish to do this and remove the `logging` and `filter` options, these are used by the CI server when generating code coverage reports, but they slow down the running of unit tests. You can also run the following to disable coverage reports
+
+    $ ./vendor/bin/phpunit --no-coverage
 
 ### Coding Standards
 

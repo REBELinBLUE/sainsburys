@@ -1,8 +1,6 @@
 <?php
 
-/**
- * The actual console runner
- **/
+// The actual console runner
 
 set_time_limit(0);
 date_default_timezone_set('Europe/London');
