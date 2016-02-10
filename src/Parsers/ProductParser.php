@@ -89,6 +89,7 @@ class ProductParser
      * Gets the details page.
      *
      * @return Crawler
+     * @todo Refactor this as it is not possible to mock currently
      */
     private function getDetails()
     {
