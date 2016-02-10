@@ -33,6 +33,7 @@ class ScraperTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      * @expectedException GuzzleHttp\Exception\ConnectException
+     * @fixme Change to use mock
      */
     public function testInvalidUrl()
     {
@@ -44,6 +45,7 @@ class ScraperTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      * @expectedException GuzzleHttp\Exception\ConnectException
+     * @fixme Change to use mock
      */
     public function testNotUrl()
     {
@@ -76,7 +78,6 @@ class ScraperTest extends \PHPUnit_Framework_TestCase
 
         $crawler = $this->scraper->fetch('http://www.google.com');
 
-        // Check the Content-Length header is returned correctly
         $this->assertEquals(filesize(__DIR__ . '/fixtures/simple.html'), $this->scraper->getResponseSize());
     }
 
@@ -84,13 +85,29 @@ class ScraperTest extends \PHPUnit_Framework_TestCase
      * Tests a valid response.
      *
      * @return void
+     * @todo Mock the sub requests
      */
     public function testSainsburyUrl()
     {
         $this->setMockHandler('5_products');
 
         $url = 'http://hiring-tests.s3-website-eu-west-1.amazonaws.com/2015_Developer_Scrape/5_products.html';
-        $this->scraper->fetchAndProcess($url);
+        $response = $this->scraper->fetchAndProcess($url);
+
+        $this->assertTrue(is_array($response));
+        $this->assertCount(7, $response);
+        $this->assertContainsOnlyInstancesOf('REBELinBLUE\\Sainsburys\\Models\\Product', $response);
+
+        foreach ($response as $product) {
+
+            $this->assertObjectHasAttribute('title', $product);
+            $this->assertObjectHasAttribute('size', $product);
+            $this->assertObjectHasAttribute('description', $product);
+            $this->assertObjectHasAttribute('unit_price', $product);
+
+            $this->assertStringEndsWith('kb', $product->size);
+            $this->assertTrue(is_numeric($product->unit_price));
+        }
     }
 
     /**
